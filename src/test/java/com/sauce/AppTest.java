@@ -1,4 +1,4 @@
-package org.example;
+package com.sauce;
 
 import static org.junit.Assert.assertTrue;
 

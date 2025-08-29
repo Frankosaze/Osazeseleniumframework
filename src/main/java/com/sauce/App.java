@@ -1,4 +1,4 @@
-package org.example;
+package com.sauce;
 
 /**
  * Hello world!
