@@ -33,4 +33,6 @@ jobs:
 
       # Step 5: Upload Test Reports (even if tests fail)
       - name: List files after test
-        run: ls -R
+        run: |
+          echo "Current directory: $(pwd)"
+          ls -R
