@@ -33,6 +33,7 @@ jobs:
 
       # Step 5: Upload Test Reports
       - name: Upload Test Reports
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: test-reports
