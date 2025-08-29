@@ -33,8 +33,6 @@ jobs:
        run: mvn clean test
 
      # Step 5: Upload Test Reports
-     - name: Run Tests
-       run: mvn clean test
      - name: Upload Test Reports
        uses: actions/upload-artifact@v3
        with:
