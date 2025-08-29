@@ -30,3 +30,20 @@ jobs:
       # Step 4: Build and Run test
       - name: Build and run Selenium tests
         run: mvn clean test
+
+      # Step 5: Upload test results (only if they exist)
+      - name: Check if test reports exist
+        run: |
+          if [ -d target/surefire-reports ]; then
+            echo "Test reports found."
+          else
+            echo "No test reports found."
+          fi
+
+      - name: Upload test results
+        if: success() || failure()   # always run, even if tests fail
+        uses: actions/upload-artifact@v4
+        with:
+          name: selenium-test-results
+          path: target/surefire-reports/
+          if-no-files-found: ignore
