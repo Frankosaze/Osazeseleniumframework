@@ -31,8 +31,11 @@ jobs:
       - name: Build and run Selenium tests
         run: mvn clean test
 
-      # Step 5: Upload Test Reports (even if tests fail)
-      - name: List files after test
-        run: |
-          echo "Current directory: $(pwd)"
-          ls -R
+      # Step 4: Add Test Report
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+        name: surefire-reports
+        path: target/surefire-reports
+
