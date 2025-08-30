@@ -36,7 +36,7 @@ jobs:
         if: success() || failure()
         uses: actions/upload-artifact@v4
         with:
-          name: selenium-test-results
+          name: Test-results
           path: target/surefire-reports/
           if-no-files-found: ignore
 
