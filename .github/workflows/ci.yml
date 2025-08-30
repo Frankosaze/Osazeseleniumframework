@@ -32,11 +32,11 @@ jobs:
         run: mvn clean test
 
       # Step 5: Add Test Report
-      - name: Upload test reports
-        if: success() || failure ()
+      - name: Upload test results
+        if: success() || failure()
         uses: actions/upload-artifact@v4
         with:
-        name: test-reports
-        path: target/surefire-reports
-        if-no-file-found: ignore
+          name: selenium-test-results
+          path: target/surefire-reports/
+          if-no-files-found: ignore
 
