@@ -37,3 +37,4 @@ jobs:
         with:
           name: test-results
           path: target/surefire-reports/
+          if-no-files-found: ignore
