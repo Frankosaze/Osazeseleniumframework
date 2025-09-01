@@ -32,9 +32,11 @@ jobs:
         run: mvn clean test
 
       # Step 5: Add Test Report
+      - name: Run Tests
+        run: mvn clean test
       - name: Upload test results
         if: success() || failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-results
           path: target/surefire-reports/
