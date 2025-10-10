@@ -2,6 +2,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class FacebookLoginPage {
     public static void main (String[] args) {
@@ -11,6 +14,12 @@ public class FacebookLoginPage {
 //        Navigate to the webpage
         driver.get("https://www.facebook.com/");
 
+//        Reset Password with linktext
+//        driver.findElement(By.cssSelector("a[href*='recover']")).click();
+
+//        Reset Password with Partial linktext
+//        driver.findElement(By.partialLinkText("Forgot")).click();
+
 //        Enter Email and Password
         driver.findElement(By.id("email")).sendKeys("justfortest@gmail.com");
         driver.findElement(By.id("pass")).sendKeys("notcorrect");
@@ -19,7 +28,7 @@ public class FacebookLoginPage {
         driver.findElement(By.name("login")).click();
 
 //        Print Error message
-        String errorMessage = driver.findElement(By.cssSelector("div[class='_9ay7']")).getText();
-        System.out.println("errorMessage: " + errorMessage);
+        WebElement errorMessage = driver.findElement(By.cssSelector("div._9ay7"));
+        System.out.println("errorMessage: " + errorMessage.getText());
     }
 }
